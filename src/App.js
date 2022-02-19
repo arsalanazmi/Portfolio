@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  Routes,
+  Route,
+  useLocation
+} from "react-router-dom";
+// import { useLocation } from "react-router";
+import { ThemeProvider } from "styled-components";
+import { lightTheme } from "./components/Themes";
+import GlobalStyle from "./globalStyles";
+import { AnimatePresence } from "framer-motion";
+// Components
+import Main from "./components/Main";
+import AboutPage from "./components/AboutPage";
+import WorkPage from "./components/WorkPage";
+import MySkillsPage from "./components/MySkillsPage";
+import SoundBar from "./subComponent/SoundBar";
 
 function App() {
+  const location = useLocation();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <GlobalStyle />
+      <ThemeProvider theme={lightTheme}>
+        <SoundBar />
+        {/* For framer motion animation on page change */}
+          <AnimatePresence exitBeforeEnter initial={false}>
+            <Routes location={location} key={location.pathname}>
+              <Route exact path="/" element={<Main />} />
+              <Route exact path="/about" element={<AboutPage />} />
+              <Route exact path="/work" element={<WorkPage />} />
+              <Route exact path="/skills" element={<MySkillsPage />} />
+            </Routes>
+          </AnimatePresence>
+      </ThemeProvider>
     </div>
   );
 }
