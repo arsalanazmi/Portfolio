@@ -14,7 +14,7 @@ import BigTitle from "../subComponent/BigTitle";
 
 const Box = styled.div`
   background-color: ${props => props.theme.body};
-  height: 800vh;
+  height: 1000vh;
   position: relative;
   overflow: hidden;
 `;
