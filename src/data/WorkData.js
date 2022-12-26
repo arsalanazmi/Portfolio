@@ -160,7 +160,7 @@ export const Work = [
     description: "A simple countdown timer app.",
     tags: ["React", "TypeScript", "Material-UI"],
 
-    demo: "https://eatery-cafe.netlify.app/",
-    github: "https://github.com/arsalanazmi/Restaurent-Template",
+    demo: "https://timer-application.netlify.app/",
+    github: "https://github.com/arsalanazmi/Timer-App",
   },
 ];
