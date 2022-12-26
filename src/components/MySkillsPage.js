@@ -143,7 +143,7 @@ const MySkillsPage = () => {
                 <li>CSS</li>
                 <li>Bootstrap</li>
                 <li>Material-Ui</li>
-                <li>Materialize CSS</li>
+                <li>Tailwind CSS</li>
               </ul>
             </Description>
           </Main>

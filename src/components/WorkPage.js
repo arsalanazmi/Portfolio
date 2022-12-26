@@ -14,10 +14,13 @@ import BigTitle from "../subComponent/BigTitle";
 
 const Box = styled.div`
   background-color: ${props => props.theme.body};
-  height: 1100vh;
+  height: 1200vh;
   position: relative;
   overflow: hidden;
-`;
+  @media (max-width: 600px) {
+    height: 1250vh;
+  }
+  `;
 
 const Main = styled(motion.ul)`
   position: fixed;
