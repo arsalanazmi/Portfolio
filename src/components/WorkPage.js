@@ -13,14 +13,14 @@ import Card from "./Card";
 import BigTitle from "../subComponent/BigTitle";
 
 const Box = styled.div`
-  background-color: ${props => props.theme.body};
+  background-color: ${(props) => props.theme.body};
   height: 1200vh;
   position: relative;
   overflow: hidden;
   @media (max-width: 600px) {
-    height: 1250vh;
+    height: 1350vh;
   }
-  `;
+`;
 
 const Main = styled(motion.ul)`
   position: fixed;
@@ -52,9 +52,9 @@ const container = {
     opacity: 1,
     transition: {
       staggerChildren: 0.5,
-      duration: 0.5
-    }
-  }
+      duration: 0.5,
+    },
+  },
 };
 const WorkPage = () => {
   const ref = useRef(null);
@@ -74,14 +74,24 @@ const WorkPage = () => {
   const containerVariants = {
     hidden: {
       opacity: 0,
-      x: 500
+      x: 500,
     },
     visible: {
       opacity: 1,
       x: 0,
-      transition: {type:'spring',mass:0.4,damping:8, when:'beforeChildren',staggerChildren:1.4 }
+      transition: {
+        type: "spring",
+        mass: 0.4,
+        damping: 8,
+        when: "beforeChildren",
+        staggerChildren: 1.4,
+      },
     },
-    exit: { opacity: 0, x: -500, transition: { ease:'easeInOut',duration: 1 } }
+    exit: {
+      opacity: 0,
+      x: -500,
+      transition: { ease: "easeInOut", duration: 1 },
+    },
   };
 
   return (
@@ -98,7 +108,9 @@ const WorkPage = () => {
           <PowerButton />
 
           <Main ref={ref} variants={container} initial="hidden" animate="show">
-            {Work.map(d => <Card key={d.id} data={d} />)}
+            {Work.map((data, index) => (
+              <Card key={index} data={data} />
+            ))}
           </Main>
 
           <Rotate ref={yinyang}>
